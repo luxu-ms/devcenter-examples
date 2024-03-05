@@ -1,0 +1,9 @@
+setupTasks:
+  - task: powershell
+    inputs:
+      command: 
+        $tempPath = "C:\Temp"
+        New-Item -Path $tempPath -ItemType "directory" -Force
+        Set-Location -Path $tempPath
+        git clone https://github.com/luxu-ms/devcenter-examples.git
+        winget configure -f devbox-customization-examples/winget-dsc/test.dsc.yaml
