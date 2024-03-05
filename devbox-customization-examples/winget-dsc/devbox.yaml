@@ -1,9 +1,9 @@
 setupTasks:
-  - task: powershell
+  - task: git-clone
     inputs:
-      command: 
-        $tempPath = "C:\Temp"
-        New-Item -Path $tempPath -ItemType "directory" -Force
-        Set-Location -Path $tempPath
-        git clone https://github.com/luxu-ms/devcenter-examples.git
-        winget configure -f devbox-customization-examples/winget-dsc/test.dsc.yaml
+      repositoryUrl: 'https://github.com/luxu-ms/devcenter-examples.git'
+      directory: 'c:\temp'
+  - task: winget
+    inputs:
+      configurationFile: 'c:\temp\devcenter-examples\devbox-customization-examples\winget-dsc\test.dsc.yaml'
+      runAsUser: true
