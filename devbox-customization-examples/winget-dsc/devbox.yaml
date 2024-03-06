@@ -1,9 +1,5 @@
 setupTasks:
-  - task: git-clone
-    inputs:
-      repositoryUrl: 'https://github.com/luxu-ms/devcenter-examples.git'
-      directory: 'c:\temp'
   - task: winget
     inputs:
       configurationFile: 'c:\temp\devcenter-examples\devbox-customization-examples\winget-dsc\test.dsc.yaml'
-      runAsUser: true
+      
